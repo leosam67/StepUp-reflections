@@ -31,22 +31,4 @@ public class Fraction implements Proxyable {
     public void setDenum(int denum) {
         this.denum = denum;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Fraction)) return false;
-
-        Fraction fraction = (Fraction) o;
-
-        if (num != fraction.num) return false;
-        return denum == fraction.denum;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = num;
-        result = 31 * result + denum;
-        return result;
-    }
 }
