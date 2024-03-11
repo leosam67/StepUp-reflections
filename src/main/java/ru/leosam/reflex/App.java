@@ -20,6 +20,5 @@ public class App
         proxyable.setDenum(1);
         proxyable.doubleValue("F");
         proxyable.doubleValue("G");
-
     }
 }

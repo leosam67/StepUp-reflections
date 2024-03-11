@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 
 public class Utils implements InvocationHandler {
+    public static final String MSG_INVOKE_SKIPPED = "REAL INVOKE IS SKIPPED";
     private final static HashMap<Object, Object> cache = new HashMap();
     private final Proxyable source;
 
