@@ -26,7 +26,7 @@ public class AppTest
         try (BufferedReader br = new BufferedReader(new FileReader(LOG_FILE_NAME))) {
             String line = br.readLine();;
             while (line != null) {
-                if (line.startsWith(Fraction.MSG_INVOKED)) invokedCnt++;
+                if (line.startsWith(Utils.MSG_INVOKED)) invokedCnt++;
                 if (line.startsWith(Utils.MSG_INVOKE_SKIPPED)) skippedCnt++;
                 line = br.readLine();
             }
@@ -38,7 +38,7 @@ public class AppTest
     }
     @Test
     @SneakyThrows
-    public void testProxy() {
+    public void testCachedProxy() {
         Fraction fr = new Fraction(2, 3);
         Utils handler = new Utils(fr);
         Proxyable proxy = (Proxyable) Proxy.newProxyInstance(Proxyable.class.getClassLoader(),
@@ -51,6 +51,9 @@ public class AppTest
         proxy.doubleValue("D");
         proxy.doubleValue("E");
 
-        checkLogFile(2, 3);
+        handler.clearHistory(ObjectHistory.CLEAR_ALL_HISTORY);
+        proxy.doubleValue("F");
+
+        checkLogFile(4, 3);
     }
 }
