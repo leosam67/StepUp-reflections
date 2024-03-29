@@ -5,12 +5,10 @@ import java.util.*;
 import java.util.function.Predicate;
 
 public class ObjectHistory {
-    public static final long DO_NOT_CLEAR_HISTORY = 0L;
-    public static final long CLEAR_ALL_HISTORY = -1L;
     private final Map<Long, ObjectCall> history = new HashMap<>();
 
     public void put(ObjectCall call) {
-        history.put(call.getTime(), call);
+        history.put(call.getFinishTime(), call);
     }
 
     public Object get(String state, Method method) {
@@ -25,13 +23,9 @@ public class ObjectHistory {
         return cachedCall.map(ObjectCall::getResult).orElse(null);
     }
 
-    public void clearHistory(Long timeout) {
-        if(timeout == DO_NOT_CLEAR_HISTORY) return;
-        if(timeout == CLEAR_ALL_HISTORY) {
-            history.clear();
-            return;
-        }
-        final long time = System.currentTimeMillis() - timeout;
+    public void clearHistory() {
+        final long time = System.currentTimeMillis();
+        final int elemCountBefore = history.size();
         for (Object key : history.keySet().stream().sorted(new Comparator<Long>() {
             @Override
             public int compare(Long o1, Long o2) {
@@ -43,8 +37,13 @@ public class ObjectHistory {
                 return aLong < time;
             }
         }).toArray()) {
-            System.out.println("Removed from cache " + history.get((Long) key).toString());
+            Utils.timedPrintln("Removed from cache " + history.get((Long) key).toString());
             history.remove((Long) key);
         }
+        int elemCountAfter = history.size();
+        if(elemCountBefore == elemCountAfter)
+            Utils.timedPrintln("* No memory freed");
+        else
+            Utils.timedPrintln("* Freed " + (elemCountBefore - elemCountAfter) + " cache items");
     }
 }
