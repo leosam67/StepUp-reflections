@@ -1,9 +1,14 @@
-package ru.leosam.reflex;
+package ru.leosam.reflex.proxy;
+
+import ru.leosam.reflex.proxy.interfaces.Cache;
+import ru.leosam.reflex.proxy.interfaces.Mutator;
+import ru.leosam.reflex.proxy.interfaces.Proxyable;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Utils implements InvocationHandler {
@@ -20,9 +25,9 @@ public class Utils implements InvocationHandler {
         timedPrintln("Proxy installed for " + proxyable.getClass().getName());
     }
 
-    public void startGarbageCollector(long interval) {
+    public void startGarbageCollector(long interval, double fullnessRate) {
         if (fm == null) {
-            fm = new FreeMemory(this, interval);
+            fm = new FreeMemory(this, interval, fullnessRate);
             timedPrintln("Garbage collector is started");
         } else timedPrintln("Garbage collector is already started");
     }
@@ -43,6 +48,7 @@ public class Utils implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         StringBuilder allArgs = new StringBuilder();
         if (args != null) {
+            // Arrays.stream(args).forEach(allArgs::append);
             for (int k = 0; k < args.length; k++) {
                 if (k > 0) allArgs.append(", ");
                 allArgs.append(args[k]);
@@ -73,9 +79,9 @@ public class Utils implements InvocationHandler {
         return result;
     }
 
-    public void clearHistory(String msg) {
+    public void clearHistory(double fullnessRate, String msg) {
         timedPrintln(MSG_HISTORY_CLEARED + msg);
-        cache.clearHistory();
+        cache.clearHistory(fullnessRate);
         System.out.println();
     }
 }

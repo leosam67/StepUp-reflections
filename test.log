@@ -1,58 +1,58 @@
-2024-03-30 01:46:00.735 Proxy installed for ru.leosam.reflex.Fraction
+2024-03-30 01:46:00.735 Proxy installed for ru.leosam.reflex.calc.Fraction
 2024-03-30 01:46:00.739 Garbage collector is started
 2024-03-30 01:46:00.745 HISTORY CLEARED (from GC)
-2024-03-30 01:46:00.751 Proxy invoked ru.leosam.reflex.Proxyable.doubleValue(A) annotated by @ru.leosam.reflex.Cache(timeout=1500L) 
+2024-03-30 01:46:00.751 Proxy invoked ru.leosam.reflex.proxy.interfaces.Proxyable.doubleValue(A) annotated by @ru.leosam.reflex.proxy.interfaces.Cache(timeout=1500L)
 2024-03-30 01:46:00.755 * No memory freed
 
-2024-03-30 01:46:00.763 INVOKED METHOD doubleValue(A) for state ru.leosam.reflex.Fraction{num=1; denum=5}
+2024-03-30 01:46:00.763 INVOKED METHOD doubleValue(A) for state ru.leosam.reflex.calc.Fraction{num=1; denum=5}
 2024-03-30 01:46:00.763 Cached after doubleValue
 
-2024-03-30 01:46:01.078 Proxy invoked ru.leosam.reflex.Proxyable.doubleValue(B) annotated by @ru.leosam.reflex.Cache(timeout=1500L) 
-2024-03-30 01:46:01.078 REAL INVOKE IS SKIPPED doubleValue(B) with state ru.leosam.reflex.Fraction{num=1; denum=5}
+2024-03-30 01:46:01.078 Proxy invoked ru.leosam.reflex.proxy.interfaces.Proxyable.doubleValue(B) annotated by @ru.leosam.reflex.proxy.interfaces.Cache(timeout=1500L)
+2024-03-30 01:46:01.078 REAL INVOKE IS SKIPPED doubleValue(B) with state ru.leosam.reflex.calc.Fraction{num=1; denum=5}
 
 2024-03-30 01:46:01.270 HISTORY CLEARED (from GC)
 2024-03-30 01:46:01.270 * No memory freed
 
-2024-03-30 01:46:01.382 Proxy invoked ru.leosam.reflex.Proxyable.doubleValue(C) annotated by @ru.leosam.reflex.Cache(timeout=1500L) 
-2024-03-30 01:46:01.382 REAL INVOKE IS SKIPPED doubleValue(C) with state ru.leosam.reflex.Fraction{num=1; denum=5}
+2024-03-30 01:46:01.382 Proxy invoked ru.leosam.reflex.proxy.interfaces.Proxyable.doubleValue(C) annotated by @ru.leosam.reflex.proxy.interfaces.Cache(timeout=1500L)
+2024-03-30 01:46:01.382 REAL INVOKE IS SKIPPED doubleValue(C) with state ru.leosam.reflex.calc.Fraction{num=1; denum=5}
 
-2024-03-30 01:46:01.686 Proxy invoked ru.leosam.reflex.Proxyable.setNum(5) annotated by @ru.leosam.reflex.Mutator() 
+2024-03-30 01:46:01.686 Proxy invoked ru.leosam.reflex.proxy.interfaces.Proxyable.setNum(5) annotated by @ru.leosam.reflex.proxy.interfaces.Mutator()
 2024-03-30 01:46:01.687 Method is a mutator. Do not clear the cache
-2024-03-30 01:46:01.688 INVOKED METHOD setNum(5) for state ru.leosam.reflex.Fraction{num=5; denum=5}
+2024-03-30 01:46:01.688 INVOKED METHOD setNum(5) for state ru.leosam.reflex.calc.Fraction{num=5; denum=5}
 
-2024-03-30 01:46:01.688 Proxy invoked ru.leosam.reflex.Proxyable.doubleValue(D) annotated by @ru.leosam.reflex.Cache(timeout=1500L) 
-2024-03-30 01:46:01.688 INVOKED METHOD doubleValue(D) for state ru.leosam.reflex.Fraction{num=5; denum=5}
+2024-03-30 01:46:01.688 Proxy invoked ru.leosam.reflex.proxy.interfaces.Proxyable.doubleValue(D) annotated by @ru.leosam.reflex.proxy.interfaces.Cache(timeout=1500L)
+2024-03-30 01:46:01.688 INVOKED METHOD doubleValue(D) for state ru.leosam.reflex.calc.Fraction{num=5; denum=5}
 2024-03-30 01:46:01.688 Cached after doubleValue
 
 2024-03-30 01:46:01.781 HISTORY CLEARED (from GC)
 2024-03-30 01:46:01.781 * No memory freed
 
-2024-03-30 01:46:01.991 Proxy invoked ru.leosam.reflex.Proxyable.setNum(1) annotated by @ru.leosam.reflex.Mutator() 
+2024-03-30 01:46:01.991 Proxy invoked ru.leosam.reflex.proxy.interfaces.Proxyable.setNum(1) annotated by @ru.leosam.reflex.proxy.interfaces.Mutator()
 2024-03-30 01:46:01.991 Method is a mutator. Do not clear the cache
-2024-03-30 01:46:01.991 INVOKED METHOD setNum(1) for state ru.leosam.reflex.Fraction{num=1; denum=5}
+2024-03-30 01:46:01.991 INVOKED METHOD setNum(1) for state ru.leosam.reflex.calc.Fraction{num=1; denum=5}
 
-2024-03-30 01:46:01.991 Proxy invoked ru.leosam.reflex.Proxyable.doubleValue(E) annotated by @ru.leosam.reflex.Cache(timeout=1500L) 
-2024-03-30 01:46:01.992 REAL INVOKE IS SKIPPED doubleValue(E) with state ru.leosam.reflex.Fraction{num=1; denum=5}
+2024-03-30 01:46:01.991 Proxy invoked ru.leosam.reflex.proxy.interfaces.Proxyable.doubleValue(E) annotated by @ru.leosam.reflex.proxy.interfaces.Cache(timeout=1500L)
+2024-03-30 01:46:01.992 REAL INVOKE IS SKIPPED doubleValue(E) with state ru.leosam.reflex.calc.Fraction{num=1; denum=5}
 
 2024-03-30 01:46:02.291 HISTORY CLEARED (from GC)
-2024-03-30 01:46:02.291 Removed from cache ru.leosam.reflex.ObjectCall@1f8b3e7a
+2024-03-30 01:46:02.291 Removed from cache ru.leosam.reflex.proxy.ObjectCall@1f8b3e7a
 2024-03-30 01:46:02.293 * Freed 1 cache items
 
-2024-03-30 01:46:02.593 Proxy invoked ru.leosam.reflex.Proxyable.setNum(5) annotated by @ru.leosam.reflex.Mutator() 
+2024-03-30 01:46:02.593 Proxy invoked ru.leosam.reflex.proxy.interfaces.Proxyable.setNum(5) annotated by @ru.leosam.reflex.proxy.interfaces.Mutator()
 2024-03-30 01:46:02.593 Method is a mutator. Do not clear the cache
-2024-03-30 01:46:02.593 INVOKED METHOD setNum(5) for state ru.leosam.reflex.Fraction{num=5; denum=5}
+2024-03-30 01:46:02.593 INVOKED METHOD setNum(5) for state ru.leosam.reflex.calc.Fraction{num=5; denum=5}
 
 2024-03-30 01:46:02.800 HISTORY CLEARED (from GC)
 2024-03-30 01:46:02.800 * No memory freed
 
 2024-03-30 01:46:03.312 HISTORY CLEARED (from GC)
-2024-03-30 01:46:03.312 Removed from cache ru.leosam.reflex.ObjectCall@35f2e75
+2024-03-30 01:46:03.312 Removed from cache ru.leosam.reflex.proxy.ObjectCall@35f2e75
 2024-03-30 01:46:03.312 * Freed 1 cache items
 
 2024-03-30 01:46:03.823 HISTORY CLEARED (from GC)
 2024-03-30 01:46:03.823 * No memory freed
 
-2024-03-30 01:46:04.095 Proxy invoked ru.leosam.reflex.Proxyable.doubleValue(F) annotated by @ru.leosam.reflex.Cache(timeout=1500L) 
-2024-03-30 01:46:04.095 INVOKED METHOD doubleValue(F) for state ru.leosam.reflex.Fraction{num=5; denum=5}
+2024-03-30 01:46:04.095 Proxy invoked ru.leosam.reflex.proxy.interfaces.Proxyable.doubleValue(F) annotated by @ru.leosam.reflex.proxy.interfaces.Cache(timeout=1500L)
+2024-03-30 01:46:04.095 INVOKED METHOD doubleValue(F) for state ru.leosam.reflex.calc.Fraction{num=5; denum=5}
 2024-03-30 01:46:04.095 Cached after doubleValue
 

@@ -1,7 +1,8 @@
-package ru.leosam.reflex;
+package ru.leosam.reflex.proxy;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.lang.reflect.Proxy;
 
 public class ObjectState {
     public static String calcState(Object obj) {

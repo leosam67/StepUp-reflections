@@ -1,11 +1,12 @@
-package ru.leosam.reflex;
+package ru.leosam.reflex.proxy;
 
 import java.lang.reflect.Method;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 
 public class ObjectHistory {
-    private final Map<Long, ObjectCall> history = new HashMap<>();
+    private final Map<Long, ObjectCall> history = new ConcurrentHashMap<>();
 
     public void put(ObjectCall call) {
         history.put(call.getFinishTime(), call);
@@ -23,24 +24,25 @@ public class ObjectHistory {
         return cachedCall.map(ObjectCall::getResult).orElse(null);
     }
 
-    public void clearHistory() {
+    public void clearHistory(double fullnessRate) {
         final long time = System.currentTimeMillis();
-        final int elemCountBefore = history.size();
+        final long elemCountBefore = history.size();
+        final long oldElements = history.keySet().stream().filter(aLong -> aLong < time).count();
+        if(oldElements == 0)
+            return;
+        if(((double) oldElements / (double) elemCountBefore) <= fullnessRate)
+            // Rate of old elements less than rate fullnessRate
+            return;
         for (Object key : history.keySet().stream().sorted(new Comparator<Long>() {
             @Override
             public int compare(Long o1, Long o2) {
                 return o1.compareTo(o2);
             }
-        }).filter(new Predicate<Long>() {
-            @Override
-            public boolean test(Long aLong) {
-                return aLong < time;
-            }
-        }).toArray()) {
+        }).filter(aLong -> aLong < time).toArray()) {
             Utils.timedPrintln("Removed from cache " + history.get((Long) key).toString());
             history.remove((Long) key);
         }
-        int elemCountAfter = history.size();
+        final int elemCountAfter = history.size();
         if(elemCountBefore == elemCountAfter)
             Utils.timedPrintln("* No memory freed");
         else

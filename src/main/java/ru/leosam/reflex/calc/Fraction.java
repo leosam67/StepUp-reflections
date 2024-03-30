@@ -1,4 +1,6 @@
-package ru.leosam.reflex;
+package ru.leosam.reflex.calc;
+
+import ru.leosam.reflex.proxy.interfaces.Proxyable;
 
 public class Fraction implements Proxyable {
     private int num;

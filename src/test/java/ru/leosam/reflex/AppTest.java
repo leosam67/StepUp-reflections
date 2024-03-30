@@ -1,9 +1,13 @@
 package ru.leosam.reflex;
 
 import lombok.SneakyThrows;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import ru.leosam.reflex.calc.Fraction;
+import ru.leosam.reflex.proxy.Utils;
+import ru.leosam.reflex.proxy.interfaces.Proxyable;
 
 import java.io.*;
 import java.lang.reflect.Proxy;
@@ -17,6 +21,11 @@ public class AppTest
         File file = new File(LOG_FILE_NAME);
         if(file.exists()) file.delete();
         System.setOut(new PrintStream(file));
+    }
+    @AfterAll
+    public static void reset() {
+        if(System.out != ORIGINAL_SYSTEM_OUT)
+            System.setOut(ORIGINAL_SYSTEM_OUT);
     }
     public void checkLogFile(int cntMustBeInvoked, int cntMustBeSkipped) throws IOException {
         final int TIMESTAMP_LENGTH = 24;
@@ -52,7 +61,7 @@ public class AppTest
         proxy.doubleValue("D");
         proxy.doubleValue("E");
 
-        handler.clearHistory("(from test application)");
+        handler.clearHistory(0.6d, "(from test application)");
         proxy.doubleValue("F");
 
         checkLogFile(4, 3);
@@ -62,7 +71,7 @@ public class AppTest
     public void testTimedCacheProxy() {
         Fraction fr = new Fraction(1, 5);
         Utils handler = new Utils(fr);
-        handler.startGarbageCollector(500L);
+        handler.startGarbageCollector(500L, 0.6d);
         Proxyable proxy = (Proxyable) Proxy.newProxyInstance(Proxyable.class.getClassLoader(),
                 new Class[] {Proxyable.class},
                 handler);

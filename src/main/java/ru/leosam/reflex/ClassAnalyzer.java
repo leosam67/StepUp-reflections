@@ -1,7 +1,12 @@
 package ru.leosam.reflex;
 
+import ru.leosam.reflex.calc.Fraction;
+import ru.leosam.reflex.proxy.Utils;
+import ru.leosam.reflex.proxy.interfaces.Cache;
+import ru.leosam.reflex.proxy.interfaces.Mutator;
+import ru.leosam.reflex.proxy.interfaces.Proxyable;
+
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;

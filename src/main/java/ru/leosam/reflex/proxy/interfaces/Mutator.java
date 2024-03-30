@@ -1,4 +1,4 @@
-package ru.leosam.reflex;
+package ru.leosam.reflex.proxy.interfaces;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

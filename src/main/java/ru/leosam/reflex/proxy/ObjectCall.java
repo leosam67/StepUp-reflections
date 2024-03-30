@@ -1,7 +1,9 @@
-package ru.leosam.reflex;
+package ru.leosam.reflex.proxy;
 
+import lombok.Getter;
 import java.lang.reflect.Method;
 
+@Getter
 public class ObjectCall {
     private final long finishTime;
     private final String objectState;
@@ -13,20 +15,5 @@ public class ObjectCall {
         this.objectState = objectState;
         this.method = method;
         this.result = result;
-    }
-    public long getFinishTime() {
-        return finishTime;
-    }
-
-    public String getObjectState() {
-        return objectState;
-    }
-
-    public Method getMethod() {
-        return method;
-    }
-
-    public Object getResult() {
-        return result;
     }
 }
